@@ -1,0 +1,18 @@
+.main {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F5F6FA;
+  row-gap: 20px;
+}
+
+.wrapperApp {
+  width: 70%;
+
+}
+
+textarea {
+  width: 200px;
+  height: 60px;
+}

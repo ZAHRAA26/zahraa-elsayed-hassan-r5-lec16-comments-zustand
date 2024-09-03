@@ -1,0 +1,10 @@
+body,
+#root,
+html {
+    height: 100%;
+    weight: 100%;
+}
+
+body {
+    font-weight: Rubik;
+}

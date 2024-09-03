@@ -1,0 +1,15 @@
+.comment {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.comment img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.comment-content {
+    flex: 1;
+}
