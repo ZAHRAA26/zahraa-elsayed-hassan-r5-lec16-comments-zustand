@@ -43,15 +43,7 @@ const App = () => {
       </header>
 
       <main>
-        {/* New Comment Form */}
-        <div>
-          <textarea
-            placeholder="Add a comment..."
-            value={newCommentContent}
-            onChange={(e) => setNewCommentContent(e.target.value)}
-          />
-          <button onClick={handleAddComment}>Post Comment</button>
-        </div>
+        
 
         {/* Render Comments */}
         {comments.length > 0 ? (
@@ -60,8 +52,18 @@ const App = () => {
           ))
         ) : (
           <p>Loading comments...</p>
-        )}
-      </main>
+          )}
+          {/* New Comment Form */}
+        <div>
+          <textarea
+            placeholder="Add a comment..."
+            value={newCommentContent}
+            onChange={(e) => setNewCommentContent(e.target.value)}
+          />
+          <button onClick={handleAddComment}>Post Comment</button>
+        </div>
+        </main>
+        
       </div>
       
     </div>

@@ -29,10 +29,10 @@ const Reply = ({ reply, commentId }) => {
   };
 
   return (
-    <div style={{ marginLeft: '20px', marginTop: '10px' }}>
+    <div style={{ marginLeft: '60px', marginTop: '10px' }}>
       <img src={reply.user.image.png} alt={reply.user.username} style={{ borderRadius: '50%', marginRight: '10px' }} />
       <h3>{reply.user.username}</h3>
-      <div>
+      <div className='d-column'>
         <button onClick={decrementScore}>-</button>
         <span>{reply.score}</span>
         <button onClick={incrementScore}>+</button>

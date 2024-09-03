@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: center;
   background-color: #F5F6FA;
-  row-gap: 20px;
 }
 
 .wrapperApp {
@@ -15,4 +14,9 @@
 textarea {
   width: 200px;
   height: 60px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
 }

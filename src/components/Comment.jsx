@@ -49,15 +49,15 @@ const Comment = ({ comment }) => {
   };
   // Ensure currentUser is available before rendering edit/delete buttons
   return (
-    <div style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc', borderRadius: '8px',backgroundColor:'white',display:'flex',rowGap:'20px' }}>
+    <div style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc', borderRadius: '8px',backgroundColor:'white',display:'flex',rowGap:'20px',flexDirection:'column' }}>
       <img src={comment.user.image.png} alt={comment.user.username} style={{ borderRadius: '50%', marginRight: '10px' }} />
           <h2>{comment.user.username}</h2>
           <div>
-              {/* {open && (<>
-                  <button onClick={decrementScore}>-</button>
-        <span>{comment.score}</span>
+             <div className='d-column'>
+        <button onClick={decrementScore}>-</button>
+        <span>{reply.score}</span>
         <button onClick={incrementScore}>+</button>
-              </>)} */}
+      </div>
         
       </div>
       {editMode ? (
