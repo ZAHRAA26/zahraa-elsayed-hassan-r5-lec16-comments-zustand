@@ -55,7 +55,7 @@ const Comment = ({ comment }) => {
           <div>
              <div className='d-column'>
         <button onClick={decrementScore}>-</button>
-        <span>{reply.score}</span>
+        <span>{comment.score}</span>
         <button onClick={incrementScore}>+</button>
       </div>
         
