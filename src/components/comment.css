@@ -4,3 +4,12 @@
     font-size: 20px;
     border: none
 }
+
+.d-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.d-row {
+    display: flex;
+}

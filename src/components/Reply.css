@@ -1,4 +1,7 @@
 .d-column {
     display: flex;
     flex-direction: column;
+    width: 30px;
+    background-color: slategrey;
+    text-align: center;
 }

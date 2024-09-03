@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useStore from '../store/CommentStore';
-
+import './Reply.css'
 const Reply = ({ reply, commentId }) => {
   const { deleteReply, editReply ,currentUser,updateReplyScore} = useStore(state => ({
     deleteReply: state.deleteReply,
@@ -34,7 +34,7 @@ const Reply = ({ reply, commentId }) => {
       <h3>{reply.user.username}</h3>
       <div className='d-column'>
         <button onClick={decrementScore}>-</button>
-        <span>{reply.score}</span>
+        <span>{!reply.score && 0}</span>
         <button onClick={incrementScore}>+</button>
       </div>
       {editMode ? (

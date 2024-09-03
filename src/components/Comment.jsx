@@ -14,7 +14,6 @@ const Comment = ({ comment }) => {
   const [editMode, setEditMode] = useState(false);
   const [editContent, setEditContent] = useState(comment.content);
   const [replyContent, setReplyContent] = useState('');
-    const [open, setOpen] = useState(false);
   const handleEdit = () => {
     editComment(comment.id, editContent);
     setEditMode(false);
@@ -29,6 +28,7 @@ const Comment = ({ comment }) => {
       id: Date.now(), // Generate a unique ID for the reply
       content: replyContent,
       createdAt: 'just now',
+      score:0,
       replyingTo: comment.user.username,
       user: {
         image: currentUser.image,
@@ -50,16 +50,17 @@ const Comment = ({ comment }) => {
   // Ensure currentUser is available before rendering edit/delete buttons
   return (
     <div style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc', borderRadius: '8px',backgroundColor:'white',display:'flex',rowGap:'20px',flexDirection:'column' }}>
-      <img src={comment.user.image.png} alt={comment.user.username} style={{ borderRadius: '50%', marginRight: '10px' }} />
-          <h2>{comment.user.username}</h2>
-          <div>
-             <div className='d-column'>
+      <div className='d-row'>
+        <div className='d-column'>
         <button onClick={decrementScore}>-</button>
         <span>{comment.score}</span>
         <button onClick={incrementScore}>+</button>
       </div>
-        
+        <div className='d-row'>
+        <img src={comment.user.image.png} alt={comment.user.username} style={{ borderRadius: '50%', marginRight: '10px' }} />
+          <h2>{comment.user.username}</h2>
       </div>
+     </div>
       {editMode ? (
         <div>
           <textarea value={editContent} onChange={(e) => setEditContent(e.target.value)} />
