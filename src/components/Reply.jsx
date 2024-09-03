@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import useStore from '../store/CommentStore';
-import './Reply.css'
+import './Reply.css';
+
 const Reply = ({ reply, commentId }) => {
-  const { deleteReply, editReply ,currentUser,updateReplyScore} = useStore(state => ({
+  const { deleteReply, editReply, currentUser, updateReplyScore } = useStore((state) => ({
     deleteReply: state.deleteReply,
     editReply: state.editReply,
     currentUser: state.currentUser,
@@ -20,12 +21,15 @@ const Reply = ({ reply, commentId }) => {
   const handleDelete = () => {
     deleteReply(commentId, reply.id);
   };
+
   const incrementScore = () => {
     updateReplyScore(commentId, reply.id, reply.score + 1);
   };
 
   const decrementScore = () => {
-    updateReplyScore(commentId, reply.id, reply.score - 1);
+    if (reply.score > 0) { // Optional: Prevent score from going below 0
+      updateReplyScore(commentId, reply.id, reply.score - 1);
+    }
   };
 
   return (
@@ -34,7 +38,7 @@ const Reply = ({ reply, commentId }) => {
       <h3>{reply.user.username}</h3>
       <div className='d-column'>
         <button onClick={decrementScore}>-</button>
-        <span>{!reply.score && 0}</span>
+        <span>{reply.score || 0}</span> {/* Ensure the score is displayed */}
         <button onClick={incrementScore}>+</button>
       </div>
       {editMode ? (
@@ -48,10 +52,9 @@ const Reply = ({ reply, commentId }) => {
       {currentUser && reply.user.username === currentUser.username && (
         <div>
           <button onClick={() => setEditMode(!editMode)}>{editMode ? 'Cancel' : 'Edit'}</button>
-      <button onClick={handleDelete}>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       )}
-      
     </div>
   );
 };
